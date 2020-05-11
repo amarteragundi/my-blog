@@ -1,6 +1,9 @@
 const express = require("express");
 
 const app = express();
+const ejs = require("ejs");
+app.use(express.static("public"));
+app.set("view engine", "ejs");
 
 const path = require("path");
 
@@ -9,11 +12,17 @@ app.listen(3000, () => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "index.html"));
+  res.render("index");
 });
 
 app.get("/about", (req, res) => {
-  res.json({
-    name: "About Amar Teragundi",
-  });
+  res.render("about");
+});
+
+app.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+app.get("/post", (req, res) => {
+  res.render("post");
 });
