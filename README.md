@@ -1,2 +1,2 @@
 # my-blog
-A blog
+A blog developed using node.js
